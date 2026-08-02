@@ -5,6 +5,10 @@ const app = express();
 
 app.use(cors());
 
+app.get("/", (req,res)=>{
+  res.send("KaupunginSyke API toimii");
+});
+
 app.get("/api/tapahtumat", async (req, res) => {
 
   try {
@@ -26,6 +30,3 @@ app.get("/api/tapahtumat", async (req, res) => {
 
 });
 
-app.listen(3000, () => {
-  console.log("Serveri käynnissä portissa 3000");
-});
