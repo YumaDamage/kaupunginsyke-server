@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { dogPlacesHandler } = require("./dog-places");
 
 const app = express();
 
@@ -105,6 +106,9 @@ app.get("/api/koirapalvelut", async (req, res) => {
     });
   }
 });
+
+// OpenStreetMapista haettavat, ennalta rajatut Zyke Dogs -palvelukategoriat.
+app.get("/api/dogs/places", dogPlacesHandler);
 
 
 // Render käyttää omaa porttia

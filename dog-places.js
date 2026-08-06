@@ -1,3 +1,7 @@
+const {
+  readRegistry, validateRegistry, normalizeRegistryPlace, mergeRegistryAndOsm
+} = require("../scripts/dog-services-registry.cjs");
+
 const OVERPASS_URLS = Object.freeze([
   "https://z.overpass-api.de/api/interpreter",
   "https://overpass-api.de/api/interpreter",
@@ -77,6 +81,8 @@ function normalizeElement(element, requestedCategory) {
   const tags = element.tags && typeof element.tags === "object" ? element.tags : {};
   const definition = CATEGORY_DEFINITIONS[requestedCategory];
   const emergency = emergencyFromTags(tags);
+  const emergencyTag = String(tags.emergency || "").toLowerCase();
+  const veterinaryEmergencyTag = String(tags["veterinary:emergency"] || "").toLowerCase();
   if (requestedCategory === "emergency_veterinary" && !emergency) return null;
   return {
     id: `osm:${element.type}:${element.id}`,
@@ -95,6 +101,15 @@ function normalizeElement(element, requestedCategory) {
     website: firstTag(tags, ["contact:website", "website"]),
     openingHours: firstTag(tags, ["opening_hours"]),
     emergency,
+    timeZone: firstTag(tags, ["timezone"]),
+    weeklyHours: null,
+    specialHours: [],
+    openingHoursText: firstTag(tags, ["opening_hours"]),
+    emergencyLevel: emergencyTag === "24/7" || veterinaryEmergencyTag === "24/7" ? "24_7" : emergency ? "limited_hours" : null,
+    emergencyHours: null,
+    emergencyOpeningHours: firstTag(tags, ["emergency:opening_hours", "opening_hours:emergency"]),
+    callBeforeArrival: ["yes", "true", "1"].includes(String(tags["emergency:call_before_arrival"] || "").toLowerCase()),
+    emergencyPhone: firstTag(tags, ["emergency:phone", "contact:emergency"]),
     sourceType: "openstreetmap",
     sourceName: "OpenStreetMap contributors",
     sourceId: `${element.type}/${element.id}`,
@@ -110,6 +125,18 @@ function normalizeOverpassResponse(data, category) {
     if (place && !unique.has(place.sourceId)) unique.set(place.sourceId, place);
   });
   return Array.from(unique.values());
+}
+
+function registryPlaces(category, bbox, registryReader = readRegistry) {
+  const records = registryReader();
+  const validation = validateRegistry(records);
+  if (!validation.valid) throw new Error(`Zyke-rekisteri ei läpäissyt validointia: ${validation.errors.join("; ")}`);
+  return records.filter(function(record) {
+    return record.type === category && record.isPublished === true && record.verificationStatus === "source_confirmed"
+      && record.isPhysicalLocation === true
+      && record.latitude >= bbox.south && record.latitude <= bbox.north
+      && record.longitude >= bbox.west && record.longitude <= bbox.east;
+  }).map(normalizeRegistryPlace);
 }
 
 async function fetchPlaces(category, bbox, fetchImpl = fetch) {
@@ -146,21 +173,30 @@ async function fetchPlaces(category, bbox, fetchImpl = fetch) {
   }
 }
 
-function createDogPlacesHandler(placeFetcher = fetchPlaces) {
+function createDogPlacesHandler(placeFetcher = fetchPlaces, registryFetcher = registryPlaces) {
   return function dogPlacesHandler(req, res) {
     const category = String(req.query.category || "");
     const bbox = parseBbox(req.query.bbox);
     if (!CATEGORY_DEFINITIONS[category]) return res.status(400).json({ error: "Tuntematon koirapalvelukategoria" });
     if (!bbox) return res.status(400).json({ error: "Virheellinen tai liian suuri bbox" });
-    return placeFetcher(category, bbox).then(function(items) {
-      res.json({ items });
-    }).catch(function(error) {
-      console.error("OpenStreetMap-koirapalvelujen haku epäonnistui:", error);
-      res.status(502).json({ error: error.name === "AbortError" ? "OpenStreetMap-haku aikakatkaistiin" : "OpenStreetMap-palvelua ei voitu hakea" });
+    return Promise.allSettled([
+      Promise.resolve().then(function() { return registryFetcher(category, bbox); }),
+      placeFetcher(category, bbox)
+    ]).then(function(results) {
+      const registryResult = results[0];
+      const osmResult = results[1];
+      if (registryResult.status === "rejected") console.error("Zyke-koirapalvelurekisterin luku epäonnistui:", registryResult.reason);
+      if (osmResult.status === "rejected") console.error("OpenStreetMap-koirapalvelujen haku epäonnistui:", osmResult.reason);
+      if (registryResult.status === "rejected" && osmResult.status === "rejected") {
+        return res.status(502).json({ error: "Koirapalvelutietoja ei voitu hakea" });
+      }
+      const registryItems = registryResult.status === "fulfilled" ? registryResult.value : [];
+      const osmItems = osmResult.status === "fulfilled" ? osmResult.value : [];
+      return res.json({ items: mergeRegistryAndOsm(registryItems, osmItems) });
     });
   };
 }
 
 const dogPlacesHandler = createDogPlacesHandler();
 
-module.exports = { CATEGORY_DEFINITIONS, parseBbox, buildOverpassQuery, normalizeElement, normalizeOverpassResponse, fetchPlaces, createDogPlacesHandler, dogPlacesHandler };
+module.exports = { CATEGORY_DEFINITIONS, parseBbox, buildOverpassQuery, normalizeElement, normalizeOverpassResponse, registryPlaces, fetchPlaces, createDogPlacesHandler, dogPlacesHandler };
