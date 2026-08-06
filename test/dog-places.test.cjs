@@ -18,13 +18,16 @@ test("server-repon oma rekisteri latautuu ilman ulkopuolisia polkuja", function(
   assert.ok(items.every(function(item) { return item.type === "dog_forest"; }));
 });
 
-test("rekisteripohjainen endpoint säilyttää items-vastaussopimuksen", async function() {
-  const res = response();
-  let externalFetches = 0;
-  const handler = createDogPlacesHandler(async function() { externalFetches += 1; return []; });
-  await handler({ query: { category: "dog_swimming_official", bbox: "61.36,23.54,61.71,24.02" } }, res);
-  assert.equal(res.statusCode, 200);
-  assert.ok(Array.isArray(res.body.items));
-  assert.equal(res.body.items.length, 1);
-  assert.equal(externalFetches, 0);
+test("kaikki rekisterikategoriat säilyttävät items-vastaussopimuksen ilman Overpass-hakua", async function() {
+  const expectedCounts = { dog_swimming_official: 1, dog_swimming_community: 0, dog_forest: 2 };
+  for (const [category, expectedCount] of Object.entries(expectedCounts)) {
+    const res = response();
+    let externalFetches = 0;
+    const handler = createDogPlacesHandler(async function() { externalFetches += 1; return []; });
+    await handler({ query: { category, bbox: "61.36,23.54,61.71,24.02" } }, res);
+    assert.equal(res.statusCode, 200, category);
+    assert.ok(Array.isArray(res.body.items), category);
+    assert.equal(res.body.items.length, expectedCount, category);
+    assert.equal(externalFetches, 0, category);
+  }
 });
