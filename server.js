@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 
-// Testi että palvelin toimii
+// Palvelun terveystarkistus
 app.get("/", (req, res) => {
   res.send("KaupunginSyke API toimii");
 });
@@ -22,6 +22,10 @@ app.get("/api/tapahtumat", async (req, res) => {
       "https://tapahtumat.tampere.fi/api/collection/634844c32f41a024ee51a234/content?lang=fi&country=FI&e=24.02&n=61.71&s=61.36&w=23.54&sort=startDate"
     );
 
+
+    if (!vastaus.ok) {
+      throw new Error(`Tapahtuma-API vastasi tilakoodilla ${vastaus.status}`);
+    }
 
     const data = await vastaus.json();
 
