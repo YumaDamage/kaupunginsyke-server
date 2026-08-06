@@ -1,0 +1,138 @@
+[
+  {
+    "id": "zyke:fi:tampere:emergency-veterinary:papuvet", "type": "emergency_veterinary", "businessType": "clinic", "isPhysicalLocation": true,
+    "name": "Papuvet Tampere", "latitude": 61.5054148, "longitude": 23.7088853,
+    "address": "Pispalan valtatie 2", "postalCode": "33250", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "0600 301 088", "emergencyPhone": "0600 301 088", "website": "https://www.papuvet.com/tampere",
+    "timeZone": "Europe/Helsinki",
+    "weeklyHours": { "monday": ["08:00-15:00"], "tuesday": ["08:00-15:00"], "wednesday": ["08:00-15:00"], "thursday": ["08:00-15:00"], "friday": ["08:00-15:00"], "saturday": [], "sunday": [] },
+    "specialHours": [], "openingHoursText": "Päiväklinikka ma–pe 08.00–15.00. Päivystys ma–pe 15.00–08.00, la–su ja arkipyhät 24 h.", "openingHours": null,
+    "emergency": true, "emergencyLevel": "municipal_on_call", "callBeforeArrival": true,
+    "emergencyHours": { "weeklyHours": { "monday": ["15:00-08:00"], "tuesday": ["15:00-08:00"], "wednesday": ["15:00-08:00"], "thursday": ["15:00-08:00"], "friday": ["15:00-24:00"], "saturday": ["00:00-24:00"], "sunday": ["00:00-08:00", "08:00-08:00"] }, "specialHours": [] },
+    "sourceType": "official", "sourceName": "Tampereen kaupunki – Eläinlääkäripalvelut", "sourceUrl": "https://www.tampere.fi/luonto-ja-ymparisto/elaimet/elainlaakaripalvelut",
+    "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2026-09-05", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:emergency-veterinary:veter", "type": "emergency_veterinary", "businessType": "clinic", "isPhysicalLocation": true,
+    "name": "Evidensia Eläinsairaala Veter", "latitude": 61.5039204, "longitude": 23.7744082,
+    "address": "Peltokatu 16", "postalCode": "33100", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "0300 484 666", "emergencyPhone": "0600 417 231", "website": "https://evidensia.fi/elainlaakariasema/elainsairaala-veter/paivystys/",
+    "timeZone": "Europe/Helsinki",
+    "weeklyHours": { "monday": ["00:00-24:00"], "tuesday": ["00:00-24:00"], "wednesday": ["00:00-24:00"], "thursday": ["00:00-24:00"], "friday": ["00:00-24:00"], "saturday": ["00:00-24:00"], "sunday": ["00:00-24:00"] },
+    "specialHours": [], "openingHoursText": "Päivystys avoinna 24 h vuoden jokaisena päivänä. Ajanvaraus ma–pe 07.30–20.30.", "openingHours": "24/7",
+    "emergency": true, "emergencyLevel": "24_7", "callBeforeArrival": true,
+    "emergencyHours": { "alwaysOpen": true, "weeklyHours": { "monday": ["00:00-24:00"], "tuesday": ["00:00-24:00"], "wednesday": ["00:00-24:00"], "thursday": ["00:00-24:00"], "friday": ["00:00-24:00"], "saturday": ["00:00-24:00"], "sunday": ["00:00-24:00"] }, "specialHours": [] },
+    "sourceType": "business", "sourceName": "Evidensia Eläinsairaala Veter – Päivystys", "sourceUrl": "https://evidensia.fi/elainlaakariasema/elainsairaala-veter/paivystys/",
+    "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2026-09-05", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:emergency-veterinary:status", "type": "emergency_veterinary", "businessType": "clinic", "isPhysicalLocation": true,
+    "name": "Eläinlääkäriasema Status", "latitude": 61.4974894, "longitude": 23.7429443,
+    "address": "Pyynikintori 8", "postalCode": "33230", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "0600 92110", "emergencyPhone": "0600 92110", "website": "https://elainlaakariasemastatus.fi/",
+    "timeZone": "Europe/Helsinki",
+    "weeklyHours": { "monday": [], "tuesday": [], "wednesday": [], "thursday": [], "friday": [], "saturday": ["10:00-24:00"], "sunday": ["00:00-20:00"] },
+    "specialHours": [], "openingHoursText": "Viikonloppupäivystys la 10.00 – su 20.00 vuorokauden ympäri. Pyhäpäivät ilmoitetaan erikseen.", "openingHours": null,
+    "emergency": true, "emergencyLevel": "weekend", "callBeforeArrival": true,
+    "emergencyHours": { "weeklyHours": { "monday": [], "tuesday": [], "wednesday": [], "thursday": [], "friday": [], "saturday": ["10:00-24:00"], "sunday": ["00:00-20:00"] }, "specialHours": [] },
+    "sourceType": "business", "sourceName": "Eläinlääkäriasema Status – Ajanvaraus ja aukioloajat", "sourceUrl": "https://elainlaakariasemastatus.fi/ajanvaraus-aukioloajat/",
+    "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2026-09-05", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:emergency-veterinary:hakametsa", "type": "emergency_veterinary", "businessType": "clinic", "isPhysicalLocation": true,
+    "name": "Eläinklinikka Hakametsä", "latitude": 61.4937377, "longitude": 23.8293973,
+    "address": "Sammon valtatie 7", "postalCode": "33530", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "03 3143 6600", "emergencyPhone": "03 3143 6600", "website": "https://helppu.fi/",
+    "timeZone": "Europe/Helsinki",
+    "weeklyHours": { "monday": ["08:00-19:30"], "tuesday": ["08:00-19:30"], "wednesday": ["08:00-19:30"], "thursday": ["08:00-19:30"], "friday": ["08:00-19:30"], "saturday": ["09:00-15:00"], "sunday": [] },
+    "specialHours": [], "openingHoursText": "Ajanvarauksella ma–pe 08.00–19.30, la 09.00–15.00. Lauantaipäivystys 09.00–14.00.", "openingHours": null,
+    "emergency": true, "emergencyLevel": "limited_hours", "callBeforeArrival": false,
+    "emergencyHours": { "weeklyHours": { "monday": [], "tuesday": [], "wednesday": [], "thursday": [], "friday": [], "saturday": ["09:00-14:00"], "sunday": [] }, "specialHours": [] },
+    "sourceType": "business", "sourceName": "Eläinklinikka Hakametsä – Yhteystiedot", "sourceUrl": "https://helppu.fi/yhteystiedot/",
+    "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2026-09-05", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:herwoof", "type": "grooming", "businessType": "salon", "isPhysicalLocation": true,
+    "name": "Trimmaamo Herwoof", "latitude": 61.4510856, "longitude": 23.8478009, "address": "Lindforsinkatu 2 LH 10", "postalCode": "33720", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "040 754 5554", "website": "https://www.trimmaamo.net/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": null, "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Trimmaamo Herwoof", "sourceUrl": "https://www.trimmaamo.net/", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:karvankyntaja", "type": "grooming", "businessType": "salon", "isPhysicalLocation": true,
+    "name": "Karvankyntäjä", "latitude": 61.4605495, "longitude": 23.8674460, "address": "Hepolamminkatu 37", "postalCode": "33720", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "050 403 8008", "website": "https://www.karvankyntaja.fi/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": "Ma–su sopimuksen mukaan", "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Karvankyntäjä – Yhteystiedot", "sourceUrl": "https://www.karvankyntaja.fi/yhteystiedot/", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:heidin-koirasalonki", "type": "grooming", "businessType": "salon", "isPhysicalLocation": true,
+    "name": "Heidin Koirasalonki", "latitude": 61.5024205, "longitude": 23.7711525, "address": "Erkkilänkatu 6 B 29", "postalCode": "33100", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "040 539 1966", "website": "https://trimmaa.fi/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": null, "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Heidin Koirasalonki", "sourceUrl": "https://trimmaa.fi/", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:luna-grooming", "type": "grooming", "businessType": "salon", "isPhysicalLocation": true,
+    "name": "Luna Grooming", "latitude": 61.4969274, "longitude": 23.8721653, "address": "Luhtaankatu 12 E 20", "postalCode": "33560", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "+358 40 859 0450", "website": "https://lunagrooming.fi/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": null, "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Luna Grooming", "sourceUrl": "https://lunagrooming.fi/", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:onnen-lemmikit", "type": "grooming", "businessType": "pet_store", "isPhysicalLocation": true,
+    "name": "Lemmikkitalo Onnen Lemmikit", "latitude": 61.4502568, "longitude": 23.7516981, "address": "Peltolamminkatu 40", "postalCode": "33840", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "040 845 8580", "website": "https://www.onnenlemmikit.fi/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": "Trimmaus ajanvarauksella. Myymälä ma–pe 10–18, la 10–15.", "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Onnen Lemmikit – Asiakaspalvelu", "sourceUrl": "https://www.onnenlemmikit.fi/i/asiakaspalvelu/5/", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2026-11-04", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:elainklinikka-timantti", "type": "grooming", "businessType": "clinic", "isPhysicalLocation": true,
+    "name": "Eläinklinikka Timantti", "latitude": 61.4706630, "longitude": 23.7418764, "address": "Leirintäkatu 2", "postalCode": "33900", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "050 324 7550", "website": "https://www.elainklinikkatimantti.com/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": "Vastaanottopalvelut ajanvarausten mukaan", "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Eläinklinikka Timantti – Info", "sourceUrl": "https://www.elainklinikkatimantti.com/info/", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:musti-mirri-kaleva", "type": "grooming", "businessType": "pet_store", "isPhysicalLocation": true,
+    "name": "Musti ja Mirri Hyvinvointipalvelut Tampere Kaleva", "latitude": 61.4914513, "longitude": 23.8172214, "address": "Rieväkatu 14", "postalCode": "33540", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "044 769 0060", "website": "https://www.mustijamirri.fi/lemmikin-trimmaus-ja-turkinhoito/hyvinvointipalvelut-tampere-kaleva", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": "Hyvinvointipalvelut ajanvarauksella. Myymälä ma–pe 10–20, la–su 10–18.", "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Musti ja Mirri Tampere Kaleva", "sourceUrl": "https://www.mustijamirri.fi/tampere_kaleva", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2026-11-04", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:grooming:musti-mirri-koivistonkyla", "type": "grooming", "businessType": "pet_store", "isPhysicalLocation": true,
+    "name": "Musti ja Mirri Hyvinvointipalvelut Tampere Koivistonkylä", "latitude": 61.4690934, "longitude": 23.7769771, "address": "Lempääläntie 21", "postalCode": "33820", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "0800 305 305", "website": "https://www.mustijamirri.fi/tampere_koivistonkyla", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": "Hyvinvointipalvelut ajanvarauksella. Myymälä ma–pe 10–20, la 10–18, su 12–18.", "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Musti ja Mirri Tampere Koivistonkylä", "sourceUrl": "https://www.mustijamirri.fi/tampere_koivistonkyla", "verificationStatus": "source_confirmed", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2026-11-04", "isPublished": true
+  },
+  {
+    "id": "zyke:fi:tampere:boarding:turretupa", "type": "boarding", "businessType": "boarding", "isPhysicalLocation": true,
+    "name": "Koirahoitola Turretupa", "latitude": 61.5640679, "longitude": 23.8322747, "address": "Aitokalliontie 23", "postalCode": "33680", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "044 501 4680", "website": "https://turretupa.fi/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": "Sopimuksen mukaan", "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Koirahoitola Turretupa", "sourceUrl": "https://turretupa.fi/", "secondarySources": [],
+    "verificationStatus": "source_confirmed", "verificationLevel": "verified", "lastVerifiedBy": "zyke", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "status": "active", "serviceScope": "regional", "isPublished": true,
+    "serviceDetails": { "dayCare": true, "overnightCare": true, "holidayCare": true, "maxDogs": null },
+    "priceInfo": null, "bookingUrl": null, "supportsOnlineBooking": false, "images": [], "socialLinks": [], "accessibility": {}
+  },
+  {
+    "id": "zyke:fi:tampere:dog-swimming-official:santalahti", "type": "dog_swimming_official", "businessType": "swimming_place", "isPhysicalLocation": true,
+    "name": "Santalahden koirien uimapaikka", "latitude": 61.5034482, "longitude": 23.7259862, "address": "Simppoonkadun pää", "postalCode": "33250", "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": null, "website": "https://www.tampere.fi/luonto-ja-ymparisto/elaimet/koirapuistot/santalahden-koirapuisto", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": null, "openingHours": null, "emergency": false,
+    "sourceType": "municipality", "sourceName": "Tampereen kaupunki – Santalahden koirapuisto", "sourceUrl": "https://www.tampere.fi/luonto-ja-ymparisto/elaimet/koirapuistot/santalahden-koirapuisto", "secondarySources": [],
+    "verificationStatus": "source_confirmed", "verificationLevel": "official", "lastVerifiedBy": "zyke", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "status": "temporarily_closed", "serviceScope": "local", "isPublished": true,
+    "serviceDetails": { "official": true, "sand": null, "dock": null, "changingRoom": null, "parking": null, "yearRoundDogs": null },
+    "priceInfo": null, "bookingUrl": null, "supportsOnlineBooking": false, "images": [], "socialLinks": [], "accessibility": {}
+  },
+  {
+    "id": "zyke:fi:tampere:dog-forest:vuores", "type": "dog_forest", "businessType": "dog_forest", "isPhysicalLocation": true,
+    "name": "Vuoreksen Koirametsä", "latitude": 61.4297731, "longitude": 23.8041559, "address": "Koipitaipaleenkatu 20", "postalCode": null, "municipality": "Tampere", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": null, "website": "https://vuoreksenkoirametsa.fi/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": null, "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Vuoreksen Koirametsä", "sourceUrl": "https://vuoreksenkoirametsa.fi/tietoa/", "secondarySources": [{ "sourceName": "Vuores – Vuoreksen koirametsä", "sourceUrl": "https://vuores.fi/palvelut/vuoreksen-koirametsa/" }],
+    "verificationStatus": "source_confirmed", "verificationLevel": "verified", "lastVerifiedBy": "zyke", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "status": "active", "serviceScope": "destination", "isPublished": true,
+    "serviceDetails": { "fenced": true, "areaHectares": 1.4, "privateRental": true, "lit": true, "water": null, "parking": true },
+    "priceInfo": null, "bookingUrl": "https://vuoreksenkoirametsa.fi/", "supportsOnlineBooking": true, "images": [], "socialLinks": [], "accessibility": {}
+  },
+  {
+    "id": "zyke:fi:ylojarvi:dog-forest:ylojarvi", "type": "dog_forest", "businessType": "dog_forest", "isPhysicalLocation": true,
+    "name": "Ylöjärven Koirametsä", "latitude": 61.5474985, "longitude": 23.6282039, "address": "Keijärventie 396", "postalCode": "33470", "municipality": "Ylöjärvi", "region": "Pirkanmaa", "countryCode": "FI", "countryName": "Suomi",
+    "phone": "040 822 9470", "website": "https://ylojarvenkoirametsa.fi/", "timeZone": "Europe/Helsinki", "weeklyHours": null, "specialHours": [], "openingHoursText": null, "openingHours": null, "emergency": false,
+    "sourceType": "business", "sourceName": "Ylöjärven Koirametsä", "sourceUrl": "https://ylojarvenkoirametsa.fi/", "secondarySources": [],
+    "verificationStatus": "source_confirmed", "verificationLevel": "verified", "lastVerifiedBy": "zyke", "lastCheckedAt": "2026-08-06", "nextReviewAt": "2027-02-02", "status": "active", "serviceScope": "destination", "isPublished": true,
+    "serviceDetails": { "fenced": true, "areaHectares": null, "privateRental": true, "lit": null, "water": null, "parking": true },
+    "priceInfo": null, "bookingUrl": "https://ylojarvenkoirametsa.fi/", "supportsOnlineBooking": true, "images": [], "socialLinks": [], "accessibility": {}
+  }
+]

@@ -1,6 +1,6 @@
 const {
   readRegistry, validateRegistry, normalizeRegistryPlace, mergeRegistryAndOsm
-} = require("../scripts/dog-services-registry.cjs");
+} = require("./lib/dog-services-registry.cjs");
 
 const OVERPASS_URLS = Object.freeze([
   "https://z.overpass-api.de/api/interpreter",
@@ -28,6 +28,7 @@ const CATEGORY_DEFINITIONS = Object.freeze({
   boarding: { type: "boarding", category: "care", filters: ['["amenity"="animal_boarding"]'] },
   training: { type: "training", category: "activity", filters: ['["amenity"="animal_training"]'] }
 });
+const REGISTRY_ONLY_CATEGORIES = Object.freeze(["dog_swimming_official", "dog_swimming_community", "dog_forest"]);
 
 const cache = new Map();
 
@@ -177,11 +178,11 @@ function createDogPlacesHandler(placeFetcher = fetchPlaces, registryFetcher = re
   return function dogPlacesHandler(req, res) {
     const category = String(req.query.category || "");
     const bbox = parseBbox(req.query.bbox);
-    if (!CATEGORY_DEFINITIONS[category]) return res.status(400).json({ error: "Tuntematon koirapalvelukategoria" });
+    if (!CATEGORY_DEFINITIONS[category] && !REGISTRY_ONLY_CATEGORIES.includes(category)) return res.status(400).json({ error: "Tuntematon koirapalvelukategoria" });
     if (!bbox) return res.status(400).json({ error: "Virheellinen tai liian suuri bbox" });
     return Promise.allSettled([
       Promise.resolve().then(function() { return registryFetcher(category, bbox); }),
-      placeFetcher(category, bbox)
+      REGISTRY_ONLY_CATEGORIES.includes(category) ? Promise.resolve([]) : placeFetcher(category, bbox)
     ]).then(function(results) {
       const registryResult = results[0];
       const osmResult = results[1];
@@ -199,4 +200,4 @@ function createDogPlacesHandler(placeFetcher = fetchPlaces, registryFetcher = re
 
 const dogPlacesHandler = createDogPlacesHandler();
 
-module.exports = { CATEGORY_DEFINITIONS, parseBbox, buildOverpassQuery, normalizeElement, normalizeOverpassResponse, registryPlaces, fetchPlaces, createDogPlacesHandler, dogPlacesHandler };
+module.exports = { CATEGORY_DEFINITIONS, REGISTRY_ONLY_CATEGORIES, parseBbox, buildOverpassQuery, normalizeElement, normalizeOverpassResponse, registryPlaces, fetchPlaces, createDogPlacesHandler, dogPlacesHandler };

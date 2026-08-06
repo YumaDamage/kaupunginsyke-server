@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --check server.js && node --check dog-places.js && node --check lib/dog-services-registry.cjs && node --test test/*.test.cjs"
   },
   "keywords": [],
   "author": "",
